@@ -1,0 +1,6 @@
+{
+  "name": "RADSAT AI",
+  "description": "Satellite Image Intelligence platform for flood segmentation, change detection, vessel detection, building footprints, and ML experiment tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

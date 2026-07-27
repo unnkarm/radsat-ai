@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg: #f1ede3;
+    --bg-raise: #e8e1d2;
+    --panel: #fbfaf6;
+    --panel-2: #f3eee2;
+    --line: rgba(20, 18, 14, 0.14);
+    --line-strong: rgba(20, 18, 14, 0.34);
+    --text: #16140f;
+    --text-dim: #55524a;
+    --text-faint: #918c7d;
+    --thermal: #c1440e;
+    --thermal-dim: rgba(193, 68, 14, 0.12);
+    --signal: #1c6e78;
+    --signal-dim: rgba(28, 110, 120, 0.12);
+    --veg: #4c7a3d;
+    --danger: #b23a2e;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .font-display {
+    font-family: 'Archivo', sans-serif;
+  }
+}
+
+/* Custom UI utilities */
+.radsat-panel {
+  background-color: var(--panel);
+  border: 1px solid var(--line);
+  position: relative;
+}
+
+.radsat-panel::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 7px;
+  height: 7px;
+  background-color: var(--text);
+}
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--thermal);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: var(--thermal);
+  display: inline-block;
+  box-shadow: 0 0 8px var(--thermal);
+}
+
+.eyebrow.signal {
+  color: var(--signal);
+}
+
+.eyebrow.signal::before {
+  background: var(--signal);
+  box-shadow: 0 0 8px var(--signal);
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.6); opacity: 1; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.animate-pulse-ring::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 1px solid var(--veg);
+  border-radius: 50%;
+  animation: pulse-ring 2s infinite;
+}
+
